@@ -6,6 +6,15 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 
 var links = document.querySelectorAll('.nav-link');
 
+// Use antialiased image for Chrome
+
+var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+
+if (isChrome) {
+  var scalingImg = document.querySelector('.scaling-img');
+  scalingImg.setAttribute('src', 'done1.png');
+}
+
 // Set nav link to active based on window location
 
 var loc = window.location.hash.replace('#', '');
