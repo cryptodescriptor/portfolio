@@ -66,14 +66,14 @@ body {
 #welcome-section {
 	padding-top: 60px;
 	height: calc(100% - 60px);
+	min-height: 300px; /* optional */
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	min-height: 300px; /* optional */
 }
 
 .scaling-img {
 	image-rendering: -webkit-optimize-contrast;
-	max-height: 100%;
-  	max-width: 100%;
+	max-height: 100%; /* -1 % fixes blur in Edge somehow */
+	max-width: 100%;
 }
