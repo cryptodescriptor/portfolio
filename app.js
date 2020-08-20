@@ -6,9 +6,6 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 
 var links = document.querySelectorAll('.nav-link');
 
-//alert(window.innerWidth + ' x ' + window.innerHeight);
-
-
 // Set nav link to active based on window location
 
 var loc = window.location.hash.replace('#', '');
