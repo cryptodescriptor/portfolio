@@ -23,6 +23,8 @@ body {
 	background-color: #111111;
 	position: fixed;
 	width: 100%;
+	top: 0;
+	left: 0;
 }
 
 #nav-list {
@@ -59,4 +61,18 @@ body {
 
 .nav-link.active {
 	background-color: #4d79ff;
+}
+
+#welcome-section {
+	padding-top: 60px;
+	height: calc(100vh - 60px);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 300px; /* optional */
+}
+
+.scaling-img {
+	max-height: 100%;
+  	max-width: 100%;
 }
