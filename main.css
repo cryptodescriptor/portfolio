@@ -74,6 +74,6 @@ body {
 
 .scaling-img {
 	image-rendering: -webkit-optimize-contrast;
-	max-height: 100%; /* -1 % fixes blur in Edge somehow */
+	max-height: 100%;
 	max-width: 100%;
 }
