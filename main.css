@@ -1,10 +1,11 @@
 html {
 	font-size: 10px;
+	height: 100%;
 }
 
 body {
 	margin: 0;
-	height: 100vh;
+	height: 100%;
 }
 
 .flex-h-center {
