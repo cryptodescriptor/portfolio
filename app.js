@@ -27,7 +27,7 @@ links.forEach(function(e) {
   });
 });
 
-// Get width and height of scaled img
+// SVG scaling accoring to where the screen is.
 
 var welcome = document.querySelector('#welcome-section');
 var screen = document.querySelector('#screen');
