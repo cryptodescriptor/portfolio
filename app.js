@@ -75,10 +75,12 @@ function scaleScreen(start) {
 
   setStyles(scale, welcomeWidth, welcomeHeight);
 
-  if (start) svgScreen.style.visibility = 'visible';
+  if (start) {
+    svgScreen.style.visibility = 'visible';
+  }
 }
 
-scalingImg.addEventListener('load', function() {
+imagesLoaded(scalingImg, function() {
   scaleScreen(true);
   window.addEventListener('resize', function() { scaleScreen(false); });
 });
