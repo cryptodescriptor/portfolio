@@ -75,7 +75,7 @@ function scaleScreen(start) {
 
   setStyles(scale, welcomeWidth, welcomeHeight);
 
-  if (start) svgScreen.style.display = 'block';
+  if (start) svgScreen.style.visibility = 'visible';
 }
 
 scalingImg.addEventListener('load', function() {
