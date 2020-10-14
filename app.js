@@ -31,6 +31,7 @@ links.forEach(function(e) {
 
 var welcome = document.querySelector('#welcome-section');
 var svgScreen = document.querySelector('#screen');
+var scalingImg = document.querySelector('.scaling-img');
 
 var imgWidth = 1960;
 var imgHeight = 1800;
@@ -55,7 +56,7 @@ function setStyles(scale, welcomeWidth, welcomeHeight) {
   }
 }
 
-function scaleScreen() {
+function scaleScreen(start) {
   var welcomeWidth = welcome.offsetWidth;
   var welcomeHeight = welcome.offsetHeight-60;
 
@@ -73,8 +74,11 @@ function scaleScreen() {
   }
 
   setStyles(scale, welcomeWidth, welcomeHeight);
+
+  if (start) svgScreen.style.display = 'block';
 }
 
-scaleScreen();
-
-window.addEventListener('resize', scaleScreen);
+scalingImg.addEventListener('load', function() {
+  scaleScreen(true);
+  window.addEventListener('resize', scaleScreen(false));
+});

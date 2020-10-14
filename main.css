@@ -83,4 +83,5 @@ body {
 #screen {
 	background: red;
 	position: absolute;
+	display: none;
 }
