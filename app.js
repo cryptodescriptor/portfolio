@@ -42,7 +42,7 @@ var topOffset = 169;
 var leftOffset = 151;
 
 function setStyles(scale, welcomeWidth, welcomeHeight) {
-  if (scale === 0) {
+  if (scale === 1) {
     svgScreen.style.left = (welcomeWidth-imgWidth)/2 + leftOffset + 'px';
     svgScreen.style.top = (welcomeHeight-imgHeight)/2 + topOffset + 60 + 'px';
     svgScreen.style.width = screenWidth + 'px';
@@ -63,7 +63,7 @@ function scaleScreen() {
   var coverRatio = welcome.offsetWidth/welcomeHeight;
 
   if (welcomeWidth >= imgWidth && welcomeHeight >= imgHeight) {
-    var scale = 0;
+    var scale = 1;
   } else if (imageRatio <= coverRatio) {
     // The Width is our constant
     var scale = imgHeight/welcomeHeight;
