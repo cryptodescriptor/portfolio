@@ -6,7 +6,7 @@ html {
 body {
 	margin: 0;
 	height: 100%;
-	overflow-x: hidden;
+	overflow: hidden; /* Remove when making new section */
 }
 
 .flex-h-center {
