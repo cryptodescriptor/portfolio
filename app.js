@@ -80,5 +80,5 @@ function scaleScreen(start) {
 
 scalingImg.addEventListener('load', function() {
   scaleScreen(true);
-  window.addEventListener('resize', scaleScreen(false));
+  window.addEventListener('resize', function() { scaleScreen(false) });
 });
