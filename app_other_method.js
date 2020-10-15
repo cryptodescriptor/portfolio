@@ -40,7 +40,7 @@ var screenWidth = 1616;
 var screenHeight = 778;
 
 var topOffset = 169;
-var leftOffset = 152;
+var leftOffset = 151;
 
 function setStyles(widthScale, heightScale) {
   if (widthScale === 1 && heightScale === 1) {
