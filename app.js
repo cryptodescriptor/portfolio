@@ -65,12 +65,12 @@ function scaleScreen(start) {
 
   if (welcomeWidth >= imgWidth && welcomeHeight >= imgHeight) {
     var scale = 1;
-  } else if (imageRatio <= coverRatio) {
-    // The Width is our constant
-    var scale = imgHeight/welcomeHeight;
-  } else {
+  } else if (imageRatio >= coverRatio) {
     // The Height is our constant
     var scale = imgWidth/welcomeWidth;
+  } else {
+    // The Width is our constant
+    var scale = imgHeight/welcomeHeight;
   }
 
   setStyles(scale, welcomeWidth, welcomeHeight);

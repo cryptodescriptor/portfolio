@@ -56,17 +56,20 @@ function setStyles(widthScale, heightScale) {
   }
 }
 
-function scaleScreen() {
+function scaleScreen(start) {
   var scaledImgWidth = scalingImg.width;
   var scaledImgHeight = scalingImg.height;
   var widthScale = imgWidth/scaledImgWidth;
   var heightScale = imgHeight/scaledImgHeight;
 
   setStyles(widthScale, heightScale);
+
+  if (start) {
+    svgScreen.style.visibility = 'visible';
+  }
 }
 
-scalingImg.addEventListener('load', function() {
-  scaleScreen();
-
-  window.addEventListener('resize', scaleScreen);
+imagesLoaded(scalingImg, function() {
+  scaleScreen(true);
+  window.addEventListener('resize', function() { scaleScreen(false); });
 });
