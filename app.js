@@ -61,7 +61,7 @@ function scaleScreen(start) {
   var welcomeHeight = welcome.offsetHeight-60;
 
   var imageRatio = imgWidth/imgHeight;
-  var coverRatio = welcome.offsetWidth/welcomeHeight;
+  var coverRatio = welcomeWidth/welcomeHeight;
 
   if (welcomeWidth >= imgWidth && welcomeHeight >= imgHeight) {
     var scale = 1;
