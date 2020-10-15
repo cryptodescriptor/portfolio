@@ -102,9 +102,6 @@ body {
 	width: 100%;
 	left: 0;
 	top: 0;
-	/* Seems to fix bug in Chrome */
-	border: solid 1px #272822;
-	box-sizing: border-box;
 }
 
 /* TODO - Translate this code into JS */
