@@ -39,7 +39,7 @@ var imgHeight = 1800;
 var screenWidth = 1616;
 var screenHeight = 778;
 
-var topOffset = 169;
+var topOffset = 170;
 var leftOffset = 152;
 
 function setStyles(widthScale, heightScale) {
