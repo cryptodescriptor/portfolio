@@ -78,7 +78,6 @@ body {
 }
 
 #screen {
-	background: #272822;
 	position: absolute;
 	visibility: hidden;
 }
