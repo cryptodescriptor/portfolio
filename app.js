@@ -30,7 +30,7 @@ links.forEach(function(e) {
 // SVG scaling accoring to where the screen is.
 
 var welcome = document.querySelector('#welcome-section');
-var svgScreen = document.querySelector('#screen');
+var scn = document.querySelector('#screen');
 var scalingImg = document.querySelector('.scaling-img');
 
 var imgWidth = 1960;
@@ -44,15 +44,15 @@ var leftOffset = 151;
 
 function setStyles(scale, welcomeWidth, welcomeHeight) {
   if (scale === 1) {
-    svgScreen.style.left = (welcomeWidth-imgWidth)/2 + leftOffset + 'px';
-    svgScreen.style.top = (welcomeHeight-imgHeight)/2 + topOffset + 60 + 'px';
-    svgScreen.style.width = screenWidth + 'px';
-    svgScreen.style.height = screenHeight + 'px';
+    scn.style.left = (welcomeWidth-imgWidth)/2 + leftOffset + 'px';
+    scn.style.top = (welcomeHeight-imgHeight)/2 + topOffset + 60 + 'px';
+    scn.style.width = screenWidth + 'px';
+    scn.style.height = screenHeight + 'px';
   } else {
-    svgScreen.style.left = (welcomeWidth-imgWidth/scale)/2 + (leftOffset/scale) + 'px';
-    svgScreen.style.top = (welcomeHeight-imgHeight/scale)/2 + (topOffset/scale) + 60 + 'px';
-    svgScreen.style.width = screenWidth/scale + 'px';
-    svgScreen.style.height = screenHeight/scale + 'px';
+    scn.style.left = (welcomeWidth-imgWidth/scale)/2 + (leftOffset/scale) + 'px';
+    scn.style.top = (welcomeHeight-imgHeight/scale)/2 + (topOffset/scale) + 60 + 'px';
+    scn.style.width = screenWidth/scale + 'px';
+    scn.style.height = screenHeight/scale + 'px';
   }
 }
 
@@ -76,7 +76,7 @@ function scaleScreen(start) {
   setStyles(scale, welcomeWidth, welcomeHeight);
 
   if (start) {
-    svgScreen.style.visibility = 'visible';
+    scn.style.visibility = 'visible';
   }
 }
 
