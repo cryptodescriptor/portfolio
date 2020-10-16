@@ -36,11 +36,26 @@ var scalingImg = document.querySelector('.scaling-img');
 var imgWidth = 1960;
 var imgHeight = 1800;
 
-var screenWidth = 1617;
-var screenHeight = 779;
+var screenWidth = 1618;
+var screenHeight = 780;
 
 var topOffset = 168;
 var leftOffset = 150;
+
+var isWebKit = navigator.userAgent.indexOf("AppleWebKit") > -1;
+
+if (isWebKit) {
+  scalingImg.src = 'webkit.png'
+  /* We have to decrement some values because 
+  the image loses 1px w+h during
+  bilinear scaling process. */
+  imgWidth--;
+  imgHeight--;
+  screenWidth--;
+  screenHeight--;
+} else {
+  scalingImg.src = 'no-webkit.png'
+}
 
 function setStyles(scale, welcomeWidth, welcomeHeight) {
   if (scale === 1) {
