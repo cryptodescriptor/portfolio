@@ -36,7 +36,7 @@ var scalingImg = document.querySelector('.scaling-img');
 var imgWidth = 1960;
 var imgHeight = 1800;
 
-var screenWidth = 1616;
+var screenWidth = 1617;
 var screenHeight = 779;
 
 var topOffset = 168;
