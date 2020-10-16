@@ -30,8 +30,7 @@ links.forEach(function(e) {
 // SVG scaling accoring to where the screen is.
 
 var welcome = document.querySelector('#welcome-section');
-var scn = document.querySelector('#screen');
-var scalingImg = document.querySelector('.scaling-img');
+var screen = document.querySelector('#screen');
 
 var imgWidth = 1960;
 var imgHeight = 1800;
@@ -42,32 +41,29 @@ var screenHeight = 780;
 var topOffset = 168;
 var leftOffset = 150;
 
-var isWebKit = navigator.userAgent.indexOf("AppleWebKit") > -1;
-
 if (isWebKit) {
-  scalingImg.src = 'webkit.png'
-  /* We have to decrement some values because 
-  the image loses 1px w+h during
-  bilinear scaling process. */
-  imgWidth--;
-  imgHeight--;
-  screenWidth--;
-  screenHeight--;
-} else {
-  scalingImg.src = 'no-webkit.png'
+  /* We have to decrement some values due to bilinear scaling process. */
+  imgWidth = 1950;
+  imgHeight = 1791;
+
+  screenWidth = 1610;
+  screenHeight = 776;
+  
+  topOffset = 167;
+  leftOffset = 149;
 }
 
 function setStyles(scale, welcomeWidth, welcomeHeight) {
   if (scale === 1) {
-    scn.style.left = (welcomeWidth-imgWidth)/2 + leftOffset + 'px';
-    scn.style.top = (welcomeHeight-imgHeight)/2 + topOffset + 60 + 'px';
-    scn.style.width = screenWidth + 'px';
-    scn.style.height = screenHeight + 'px';
+    screen.style.left = (welcomeWidth-imgWidth)/2 + leftOffset + 'px';
+    screen.style.top = (welcomeHeight-imgHeight)/2 + topOffset + 60 + 'px';
+    screen.style.width = screenWidth + 'px';
+    screen.style.height = screenHeight + 'px';
   } else {
-    scn.style.left = (welcomeWidth-imgWidth/scale)/2 + (leftOffset/scale) + 'px';
-    scn.style.top = (welcomeHeight-imgHeight/scale)/2 + (topOffset/scale) + 60 + 'px';
-    scn.style.width = screenWidth/scale + 'px';
-    scn.style.height = screenHeight/scale + 'px';
+    screen.style.left = (welcomeWidth-imgWidth/scale)/2 + (leftOffset/scale) + 'px';
+    screen.style.top = (welcomeHeight-imgHeight/scale)/2 + (topOffset/scale) + 60 + 'px';
+    screen.style.width = screenWidth/scale + 'px';
+    screen.style.height = screenHeight/scale + 'px';
   }
 }
 
@@ -91,7 +87,7 @@ function scaleScreen(start) {
   setStyles(scale, welcomeWidth, welcomeHeight);
 
   if (start) {
-    scn.style.visibility = 'visible';
+    screen.style.visibility = 'visible';
   }
 }
 
