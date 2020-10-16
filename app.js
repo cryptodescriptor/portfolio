@@ -37,10 +37,10 @@ var imgWidth = 1960;
 var imgHeight = 1800;
 
 var screenWidth = 1616;
-var screenHeight = 778;
+var screenHeight = 779;
 
-var topOffset = 169;
-var leftOffset = 151;
+var topOffset = 168;
+var leftOffset = 150;
 
 function setStyles(scale, welcomeWidth, welcomeHeight) {
   if (scale === 1) {
