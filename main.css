@@ -9,6 +9,12 @@ body {
 	overflow: hidden; /* Remove when making new section */
 }
 
+.animations-paused *,
+.animations-paused *:before,
+.animations-paused *:after {
+  animation-play-state: paused !important;
+}
+
 @font-face {
   font-family: 'Aldrich';
   font-style: normal;

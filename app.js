@@ -88,6 +88,7 @@ function scaleScreen(start) {
 
   if (start) {
     screen.style.visibility = 'visible';
+    document.body.classList.remove('animations-paused');
   }
 }
 
