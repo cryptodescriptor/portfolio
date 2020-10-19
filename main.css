@@ -9,6 +9,15 @@ body {
 	overflow: hidden; /* Remove when making new section */
 }
 
+@font-face {
+  font-family: 'Aldrich';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Aldrich Regular'), local('Aldrich-Regular'), url(/fonts/MCoTzAn-1s3IGyJMVacY3w.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 .flex-h-center {
 	display: flex;
 	justify-content: center;
@@ -110,8 +119,134 @@ body {
 	top: 0;
 }
 
-.prog {
-  transform: translate(50%, 50%);
+@keyframes fadeInOut {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes move_ {
+  100% {
+    transform: translateX(6px);
+  }
+}
+
+@keyframes move_1 {
+  100% {
+    transform: translateX(13px);
+  }
+}
+
+@keyframes move_2 {
+  100% {
+    transform: translateX(21px);
+  }
+}
+
+@keyframes move_3 {
+  100% {
+    transform: translateX(27px);
+  }
+}
+
+@keyframes move_4 {
+  100% {
+    transform: translateX(35px);
+  }
+}
+
+@keyframes move_5 {
+  100% {
+    transform: translateX(46px);
+  }
+}
+
+@keyframes move_6 {
+  100% {
+    transform: translateX(57px);
+  }
+}
+
+@keyframes move_7 {
+  100% {
+    transform: translateX(60px);
+  }
+}
+
+@keyframes move_8 {
+  100% {
+    transform: translateX(68px);
+  }
+}
+
+@keyframes move_9 {
+  100% {
+    transform: translateX(76px);
+  }
+}
+
+#underscore {
+  animation: fadeInOut 1s infinite,
+  move_ 0s .1s forwards,
+  move_1 0s .2s forwards,
+  move_2 0s .3s forwards,
+  move_3 0s .4s forwards,
+  move_4 0s .5s forwards,
+  move_5 0s .6s forwards,
+  move_6 0s .65s forwards, /* m faster (realness) */
+  move_7 0s .75s forwards,
+  move_8 0s .85s forwards,
+  move_9 0s .95s forwards;
+}
+
+#programming > text:not(:first-child):not(:last-child) {
+  opacity: 0;
+}
+
+@keyframes reveal {
+  100% {
+    opacity: 1;
+  }
+}
+
+#r {
+  animation: reveal 0s .1s forwards;
+}
+
+#o {
+  animation: reveal 0s .2s forwards;
+}
+
+#g {
+  animation: reveal 0s .3s forwards;
+}
+
+#r1 {
+  animation: reveal 0s .4s forwards;
+}
+
+#a {
+  animation: reveal 0s .5s forwards;
+}
+
+#m {
+  animation: reveal 0s .6s forwards;
+}
+
+#m1 {
+  animation: reveal 0s .65s forwards;
+}
+
+#i {
+  animation: reveal 0s .75s forwards;
+}
+
+#n {
+  animation: reveal 0s .85s forwards;
+}
+
+#g1 {
+  animation: reveal 0s .95s forwards;
 }
 
 /* TODO - Translate this code into JS */
