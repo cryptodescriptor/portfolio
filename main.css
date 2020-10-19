@@ -119,6 +119,8 @@ body {
 	top: 0;
 }
 
+/* "Programming_" text animation */
+
 @keyframes fadeInOut {
   50% {
     opacity: 0;
