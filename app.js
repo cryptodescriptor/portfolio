@@ -137,9 +137,6 @@ function restartAnimation() {
   // Clone mask
   var newMask = mask.cloneNode(true);
 
-  // Set "delayed" class
-  newMask.setAttribute('class', 'delayed');
-
   // Insert new mask to start animation on group2
   mask.parentNode.replaceChild(newMask, mask);
   mask = document.querySelector('#mask');
