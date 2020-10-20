@@ -96,3 +96,57 @@ imagesLoaded(scalingImg, function() {
   scaleScreen(true);
   window.addEventListener('resize', function() { scaleScreen(false); });
 });
+
+
+// Coding Animation
+
+function whichAnimationEvent(){
+  var t,
+      el = document.createElement("fakeelement");
+
+  var animations = {
+    "animation"      : "animationend",
+    "OAnimation"     : "oAnimationEnd",
+    "MozAnimation"   : "animationend",
+    "WebkitAnimation": "webkitAnimationEnd"
+  }
+
+  for (t in animations){
+    if (el.style[t] !== undefined){
+      return animations[t];
+    }
+  }
+}
+
+var lastMaskPath = document.querySelector('#mask path:nth-child(6)'),
+  animationEvent = whichAnimationEvent();
+
+lastMaskPath.addEventListener(animationEvent, restartAnimation);
+
+function restartAnimation() {
+  var group1 = document.querySelector('#group1'),
+    group2 = document.querySelector('#group2'),
+    mask = document.querySelector('#mask');
+
+  // Remove mask from current group
+  group1.removeAttribute('mask');
+
+  // Set mask on next group
+  group2.setAttribute('mask', 'url(#mask)');
+
+  // Clone mask
+  var newMask = mask.cloneNode(true);
+
+  // Set "delayed" class
+  newMask.setAttribute('class', 'delayed');
+
+  // Insert new mask to start animation on group2
+  mask.parentNode.replaceChild(newMask, mask);
+  mask = document.querySelector('#mask');
+
+  // Only reveal when mask is initialised
+  group2.style.opacity = '1';
+
+  // Cleanup
+  lastMaskPath.removeEventListener(animationEvent, restartAnimation);
+}
