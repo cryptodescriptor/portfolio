@@ -267,7 +267,7 @@ rect {
   opacity:0;
   animation: expand 0.2s forwards;
 }
-/* End of housekeeping css */xs
+/* End of housekeeping css */
 
 /* Delays to subsequent "dashes" */
 #line1 #dash-2 {
