@@ -201,7 +201,7 @@ body {
 	move_3 0s .3s forwards,
 	move_4 0s .375s forwards,
 	move_5 0s .45s forwards,
-	move_6 0s .525s forwards, /* m faster (realness) */
+	move_6 0s .525s forwards,
 	move_7 0s .6s forwards,
 	move_8 0s .675s forwards,
 	move_9 0s .75s forwards;
