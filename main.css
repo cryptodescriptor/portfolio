@@ -207,7 +207,7 @@ body {
 	move_9 0s .75s forwards;
 }
 
-#programming > text:not(:first-child):not(:last-child) {
+#programming-text > text:not(:first-child):not(:last-child) {
 	opacity: 0;
 }
 
@@ -349,4 +349,32 @@ body {
 @keyframes scroll2 {
 	0% { transform: translateY(165px); }
 	100% { transform: translateY(0px); }
+}
+
+/* Fades */
+
+@keyframes fadeOut {
+	100% {
+		opacity: 0;
+	}
+}
+
+.fadeOut {
+	animation: fadeOut .4s .2s linear forwards;
+}
+
+@keyframes fadeIn {
+	100% {
+		opacity: 1;
+	}
+}
+
+.fadeIn {
+	animation: fadeIn .8s linear forwards;
+}
+
+/* Cogs */
+
+#cogs-svg  {
+	opacity: 0;
 }
