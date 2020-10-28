@@ -375,6 +375,66 @@ body {
 
 /* Cogs */
 
-#cogs-svg  {
-	opacity: 0;
+@keyframes rotateIn {
+	0% {
+		transform: rotate3d(-1, 1, 0, -180deg);
+	}
+}
+
+@keyframes rotateIn1 {
+	0% {
+		transform: rotate3d(0, 1, 0, 180deg);
+	}
+}
+
+@keyframes rotateIn2 {
+	0% {
+		transform: rotate3d(0, 1, 0, 180deg);
+	}
+}
+
+@keyframes rotateIn3 {
+	0% {
+		transform: rotate3d(1, -1, 0, 100deg);
+	}
+}
+
+@keyframes rotateIn4 {
+	0% {
+		transform: rotate3d(1, 1, 0, 180deg);
+	}
+}
+
+@keyframes rotateIn5 {
+	0% {
+		transform: rotate3d(-1, 1, 0, 70deg);
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+#cog1 {
+	animation: rotateIn .7s linear forwards;
+}
+
+#cog2 {
+	animation: rotateIn1 .7s linear forwards;
+}
+
+#cog3 {
+	animation: rotateIn2 .9s linear forwards;
+}
+
+#cog4 {
+	animation: rotateIn3 .9s linear forwards;
+}
+
+#cog5 {
+	animation: rotateIn4 .9s linear forwards;
+}
+
+#cog6 {
+	animation: rotateIn5 .9s linear forwards;
 }

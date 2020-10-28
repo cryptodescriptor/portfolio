@@ -118,16 +118,38 @@ function whichAnimationEvent(){
   }
 }
 
+var animationEvent = whichAnimationEvent();
+
+var whichTransitionEvent = function() {
+  var t;
+  var el = document.createElement("fakeelement");
+  var transitions = {
+    transition: "transitionend",
+    OTransition: "oTransitionEnd",
+    MozTransition: "transitionend",
+    WebkitTransition: "webkitTransitionEnd"
+  };
+  for (t in transitions) {
+    if (el.style[t] !== undefined) {
+      return transitions[t];
+    }
+  }
+}
+
+var transitionEvent = whichTransitionEvent();
+
 var lastMaskPath = document.querySelector('#mask path:nth-child(6)'),
-  animationEvent = whichAnimationEvent(),
   programmingSVG = document.querySelector('#programming-svg'),
   codingSVG = document.querySelector('#coding-svg'),
-  cogsSVG = document.querySelector('#cogs-svg');
+  cogsSVG = document.querySelector('#cogs-svg'),
+  cogsGroup = document.querySelector('#cogs-svg > g'),
+  lastCog = document.querySelector('#cog6');
 
 lastMaskPath.addEventListener(animationEvent, restartAnimation);
 
 function addRotateTransform(target_id, dur, dir) {
   var my_element = cogsSVG.getElementById(target_id);
+  my_element.style.animation = 'none'; /* Fix Firefox bug */
   var a = document.createElementNS('http://www.w3.org/2000/svg', 'animateTransform');
   var bb = my_element.getBBox();
   var cx = bb.x + bb.width/2;
@@ -145,15 +167,16 @@ function addRotateTransform(target_id, dur, dir) {
 function revealAndSpinCogs() {
   // Wait for programming SVG's to fade out
   programmingSVG.addEventListener(animationEvent, function() {
-    // Fade Cogs in
-    cogsSVG.classList.add('fadeIn');
-    // Start Cog rotations
-    addRotateTransform('cog1', 3, -1);
-    addRotateTransform('cog2', 3, 1);
-    addRotateTransform('cog3', 3, -1);
-    addRotateTransform('cog4', 3, 1);
-    addRotateTransform('cog5', 3, 1);
-    addRotateTransform('cog6', 3, -1);
+    lastCog.addEventListener(animationEvent, function() {
+      // Start Cog rotations
+      addRotateTransform('cog1', 3, -1);
+      addRotateTransform('cog2', 3, 1);
+      addRotateTransform('cog3', 3, -1);
+      addRotateTransform('cog4', 3, 1);
+      addRotateTransform('cog5', 3, 1);
+      addRotateTransform('cog6', 3, -1);
+    });
+    cogsGroup.classList.remove('animations-paused');
   });
 }
 
