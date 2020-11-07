@@ -370,7 +370,7 @@ body {
 }
 
 .fadeIn {
-	animation: fadeIn .6s linear forwards;
+	animation: fadeIn .8s linear forwards;
 }
 
 /* Cogs */
@@ -416,27 +416,27 @@ body {
 }
 
 #cog1 {
-	animation: rotateIn .5s linear forwards;
+	animation: rotateIn .7s linear forwards;
 }
 
 #cog2 {
-	animation: rotateIn1 .5s linear forwards;
+	animation: rotateIn1 .7s linear forwards;
 }
 
 #cog3 {
-	animation: rotateIn2 .7s linear forwards;
+	animation: rotateIn2 .9s linear forwards;
 }
 
 #cog4 {
-	animation: rotateIn3 .7s linear forwards;
+	animation: rotateIn3 .9s linear forwards;
 }
 
 #cog5 {
-	animation: rotateIn4 .7s linear forwards;
+	animation: rotateIn4 .9s linear forwards;
 }
 
 #cog6 {
-	animation: rotateIn5 .7s linear forwards;
+	animation: rotateIn5 .9s linear forwards;
 }
 
 #seamless-svg {
