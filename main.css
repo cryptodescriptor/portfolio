@@ -370,7 +370,7 @@ body {
 }
 
 .fadeIn {
-	animation: fadeIn .8s linear forwards;
+	animation: fadeIn .7s linear forwards;
 }
 
 /* Cogs */
@@ -437,4 +437,8 @@ body {
 
 #cog6 {
 	animation: rotateIn5 .7s linear forwards;
+}
+
+#seamless-svg {
+	opacity: 0;
 }

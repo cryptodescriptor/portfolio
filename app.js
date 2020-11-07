@@ -141,6 +141,7 @@ var transitionEvent = whichTransitionEvent();
 var lastMaskPath = document.querySelector('#mask path:nth-child(6)'),
   programmingSVG = document.querySelector('#programming-svg'),
   codingSVG = document.querySelector('#coding-svg'),
+  seamlessSVG = document.querySelector('#seamless-svg'),
   cogsSVG = document.querySelector('#cogs-svg'),
   cogsGroup = document.querySelector('#cogs-svg > g'),
   lastCog = document.querySelector('#cog6');
@@ -176,6 +177,7 @@ function revealAndSpinCogs() {
       addRotateTransform('cog5', 3, 1);
       addRotateTransform('cog6', 3, -1);
     });
+    seamlessSVG.classList.add('fadeIn');
     cogsGroup.classList.remove('animations-paused');
   });
 }
