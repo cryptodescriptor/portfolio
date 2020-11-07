@@ -370,7 +370,7 @@ body {
 }
 
 .fadeIn {
-	animation: fadeIn .3s linear forwards;
+	animation: fadeIn .8s linear forwards;
 }
 
 /* Cogs */
