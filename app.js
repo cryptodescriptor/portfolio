@@ -184,8 +184,11 @@ function fadeOutCogs() {
 function revealAndSpinCogs() {
   // Wait for programming SVG's to fade out
   programmingSVG.addEventListener(animationEvent, function() {
+    // Set up listeners to occur after entrance animations
     lastCog.addEventListener(animationEvent, startCogRotations);
     seamlessSVG.addEventListener(animationEvent, fadeOutCogs);
+
+    // Reveal text and cogs
     seamlessSVG.classList.add('fadeIn');
     cogsGroup.classList.remove('animations-paused');
   });
