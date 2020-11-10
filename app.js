@@ -165,18 +165,34 @@ function addRotateTransform(target_id, dur, dir) {
   a.beginElement();
 }
 
+function startCogRotations() {
+  addRotateTransform('cog1', 3, -1);
+  addRotateTransform('cog2', 3, 1);
+  addRotateTransform('cog3', 3, -1);
+  addRotateTransform('cog4', 3, 1);
+  addRotateTransform('cog5', 3, 1);
+  addRotateTransform('cog6', 3, -1);
+}
+
+function fadeOutCogs() {
+  /* Having to use setTimeOut here because detecting animationEnd
+  doesnt want to work. */
+  setTimeout(function() {
+    // Cleanup seamlessSVG fadeIn so we can fadeOut without problems.
+    seamlessSVG.style.opacity = '1';
+    seamlessSVG.classList.remove('fadeIn');
+
+    // Fade text and cogs out
+    seamlessSVG.classList.add('fadeOut');
+    cogsSVG.classList.add('fadeOut'); // Fold out instead?
+  }, 3000);
+}
+
 function revealAndSpinCogs() {
   // Wait for programming SVG's to fade out
   programmingSVG.addEventListener(animationEvent, function() {
-    lastCog.addEventListener(animationEvent, function() {
-      // Start Cog rotations
-      addRotateTransform('cog1', 3, -1);
-      addRotateTransform('cog2', 3, 1);
-      addRotateTransform('cog3', 3, -1);
-      addRotateTransform('cog4', 3, 1);
-      addRotateTransform('cog5', 3, 1);
-      addRotateTransform('cog6', 3, -1);
-    });
+    lastCog.addEventListener(animationEvent, startCogRotations);
+    seamlessSVG.addEventListener(animationEvent, fadeOutCogs());
     seamlessSVG.classList.add('fadeIn');
     cogsGroup.classList.remove('animations-paused');
   });
