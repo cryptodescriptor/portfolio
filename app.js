@@ -175,24 +175,17 @@ function startCogRotations() {
 }
 
 function fadeOutCogs() {
-  /* Having to use setTimeOut here because detecting animationEnd
-  doesnt want to work. */
-  setTimeout(function() {
-    // Cleanup seamlessSVG fadeIn so we can fadeOut without problems.
-    seamlessSVG.style.opacity = '1';
-    seamlessSVG.classList.remove('fadeIn');
-
-    // Fade text and cogs out
-    seamlessSVG.classList.add('fadeOut');
-    cogsSVG.classList.add('fadeOut'); // Fold out instead?
-  }, 3000);
+  seamlessSVG.style.opacity = '1';
+  seamlessSVG.classList.remove('fadeIn');
+  seamlessSVG.classList.add('fadeOut1');
+  cogsSVG.classList.add('fadeOut1');
 }
 
 function revealAndSpinCogs() {
   // Wait for programming SVG's to fade out
   programmingSVG.addEventListener(animationEvent, function() {
     lastCog.addEventListener(animationEvent, startCogRotations);
-    seamlessSVG.addEventListener(animationEvent, fadeOutCogs());
+    seamlessSVG.addEventListener(animationEvent, fadeOutCogs);
     seamlessSVG.classList.add('fadeIn');
     cogsGroup.classList.remove('animations-paused');
   });
