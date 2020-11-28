@@ -127,10 +127,10 @@ function setStyles(scale, welcomeWidth, welcomeHeight) {
     screen.style.width = screenWidth + 'px';
     screen.style.height = screenHeight + 'px';
   } else {
-    screen.style.left = (welcomeWidth-imgWidth/scale)/2 + (leftOffset/scale) + 'px';
-    screen.style.top = (welcomeHeight-imgHeight/scale)/2 + (topOffset/scale) + 60 + 'px';
-    screen.style.width = screenWidth/scale + 'px';
-    screen.style.height = screenHeight/scale + 'px';
+    screen.style.left = (welcomeWidth-imgWidth*scale)/2 + (leftOffset*scale) + 'px';
+    screen.style.top = (welcomeHeight-imgHeight*scale)/2 + (topOffset*scale) + 60 + 'px';
+    screen.style.width = screenWidth*scale + 'px';
+    screen.style.height = screenHeight*scale + 'px';
   }
 }
 
@@ -141,21 +141,17 @@ function scaleScreen(srcImg, start) {
   var imageRatio = imgWidth/imgHeight;
   var coverRatio = welcomeWidth/welcomeHeight;
 
-  if (welcomeWidth >= imgWidth && welcomeHeight >= imgHeight) {
-    var scale = 1;
-  } else if (imageRatio >= coverRatio) {
+  if (imageRatio >= coverRatio) {
     // The Height is our constant
-    var scale = imgWidth/welcomeWidth;
-    console.log('1) ' + welcomeWidth/imgWidth);
+    var scale = welcomeWidth/imgWidth;
   } else {
     // The Width is our constant
-    var scale = imgHeight/welcomeHeight;
-    console.log('2) ' + welcomeHeight/imgHeight);
+    var scale = welcomeHeight/imgHeight;
   }
 
   console.log(scale);
 
-  scaleCanvas(srcImg, scale);
+  scaleCanvas(srcImg);
 
   setStyles(scale, welcomeWidth, welcomeHeight);
 
@@ -177,7 +173,7 @@ image_var.onload  = function () {
   // getImageData : Chrome & FF: Unable to get image data from canvas because the canvas
   // has been tainted by cross-origin data.
   // when served from localhost, dev laptop
-  var srcImg = loadCtx.getImageData(0, 0, image_var.width, image_var.height);
+  var srcImg = 0;
 
   scaleScreen(srcImg, true);
   window.addEventListener('resize', function() { scaleScreen(srcImg, false); });
