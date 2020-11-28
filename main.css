@@ -93,6 +93,12 @@ body {
 	/*min-height: 300px;*/
 }
 
+.scaling-img {
+	image-rendering: -webkit-optimize-contrast;
+	max-height: 100%;
+	max-width: 100%;
+}
+
 #screen {
 	position: absolute;
 	visibility: hidden;
