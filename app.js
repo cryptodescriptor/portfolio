@@ -173,7 +173,7 @@ image_var.onload  = function () {
   // getImageData : Chrome & FF: Unable to get image data from canvas because the canvas
   // has been tainted by cross-origin data.
   // when served from localhost, dev laptop
-  var srcImg = 0;
+  var srcImg = loadCtx.getImageData(0, 0, image_var.width, image_var.height);
 
   scaleScreen(srcImg, true);
   window.addEventListener('resize', function() { scaleScreen(srcImg, false); });
