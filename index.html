@@ -68,21 +68,8 @@
 	<section id="welcome-section" class="flex-hv-center">
 		<!--<h1 id="page-title">Slick Responsive Design</h1>-->
 
-		<script type="text/javascript">
-			var scalingImg = document.createElement('img');
-			var imageParent = document.querySelector('#welcome-section');
-			scalingImg.className = 'scaling-img';
-
-			var isWebKit = navigator.userAgent.indexOf('AppleWebKit') > -1;
-
-			if (isWebKit) {
-				scalingImg.src = 'webkit.png';
-			} else {
-				scalingImg.src = 'no-webkit.png';
-			}
-
-			imageParent.appendChild(scalingImg);
-		</script>
+		<canvas id="load-canvas" style="display:none;"></canvas>
+    	<canvas id="disp-canvas"></canvas>
 
 		<div id="screen" class="flex-hv-center-col">
 			<div class="scaling-svg-container-wrapper">
