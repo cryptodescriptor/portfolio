@@ -107,7 +107,7 @@ var dispCan = document.getElementById("disp-canvas");
 var loadCtx = loadCan.getContext("2d");
 var dispCtx = dispCan.getContext("2d");
 
-function scaleCanvas(scale) {
+function scaleCanvas(srcImg, scale) {
   var newWidth = Math.ceil(image_var.width*scale);
   var newHeight = Math.ceil(image_var.height*scale);
   dispCan.width = newWidth;
@@ -134,7 +134,7 @@ function setStyles(scale, welcomeWidth, welcomeHeight) {
   }
 }
 
-function scaleScreen(start) {
+function scaleScreen(srcImg, start) {
   var welcomeWidth = welcome.offsetWidth;
   var welcomeHeight = welcome.offsetHeight-60;
 
@@ -153,7 +153,7 @@ function scaleScreen(start) {
 
   console.log(scale);
 
-  scaleCanvas(scale);
+  scaleCanvas(srcImg, scale);
 
   setStyles(scale, welcomeWidth, welcomeHeight);
 
@@ -177,8 +177,8 @@ image_var.onload  = function () {
   // when served from localhost, dev laptop
   var srcImg = loadCtx.getImageData(0, 0, image_var.width, image_var.height);
 
-  scaleScreen(true);
-  window.addEventListener('resize', function() { scaleScreen(false); });
+  scaleScreen(srcImg, true);
+  window.addEventListener('resize', function() { scaleScreen(srcImg, false); });
 }
 image_var.src = "no-webkit.png";
 
