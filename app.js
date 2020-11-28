@@ -146,9 +146,11 @@ function scaleScreen(srcImg, start) {
   } else if (imageRatio >= coverRatio) {
     // The Height is our constant
     var scale = imgWidth/welcomeWidth;
+    console.log('1) ' + welcomeWidth/imgWidth);
   } else {
     // The Width is our constant
     var scale = imgHeight/welcomeHeight;
+    console.log('2) ' + welcomeHeight/imgHeight);
   }
 
   console.log(scale);
