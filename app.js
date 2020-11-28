@@ -151,7 +151,7 @@ function scaleScreen(srcImg, start) {
 
   console.log(scale);
 
-  scaleCanvas(srcImg);
+  scaleCanvas(srcImg, scale);
 
   setStyles(scale, welcomeWidth, welcomeHeight);
 
