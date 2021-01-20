@@ -447,6 +447,8 @@ body {
 	opacity: 0;
 }
 
+/* Eye */
+
 #lid {
   animation: blink 3.4s infinite;
 }
