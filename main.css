@@ -104,6 +104,16 @@ body {
 	visibility: hidden;
 }
 
+.noselect {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+}
+
 .scaling-svg-container-wrapper {
 	width: 25%;
 }
@@ -447,7 +457,7 @@ body {
 	opacity: 0;
 }
 
-/* Eye */
+/* Button SVG */
 
 #lid {
   animation: blink 3.4s infinite;
@@ -468,6 +478,7 @@ body {
     animation-timing-function: ease-out;
   }
 }
+
 @keyframes squeeze {
   90% {
     transform: none;
@@ -481,6 +492,10 @@ body {
   }
 }
 
-#curse {
+.cursor-pointer {
 	cursor: pointer;
+}
+
+#view-svg {
+	opacity: 0;
 }

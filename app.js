@@ -135,7 +135,12 @@ var lastMaskPath = document.querySelector('#mask path:nth-child(6)'),
   seamlessSVG = document.querySelector('#seamless-svg'),
   cogsSVG = document.querySelector('#cogs-svg'),
   cogsGroup = document.querySelector('#cogs-svg > g'),
-  lastCog = document.querySelector('#cog6');
+  lastCog = document.querySelector('#cog6'),
+  viewSVG = document.querySelector('#view-svg'),
+  reducePaddingElem = document.querySelector(
+    '#screen > .scaling-svg-container-wrapper:nth-child(1) > .scaling-svg-container'
+  ),
+  projectsAnchor = document.querySelector('a[href="#projects"]');
 
 lastMaskPath.addEventListener(animationEvent, restartAnimation);
 
@@ -165,10 +170,26 @@ function startCogRotations() {
   addRotateTransform('cog6', 3, -1);
 }
 
+function revealViewProjectsBtn(e) {
+  if (e.animationName === 'fadeOut') {
+    // Reduce padding on element above so btn is higher up
+    reducePaddingElem.style.paddingBottom = '5%';
+
+    viewSVG.addEventListener('click', function() {
+       projectsAnchor.click();
+    });
+    
+    viewSVG.classList.add('cursor-pointer');
+    viewSVG.classList.add('fadeIn');
+    cogsSVG.removeEventListener(animationEvent, revealViewProjectsBtn);
+  }
+}
+
 function fadeOutCogs() {
   seamlessSVG.style.opacity = '1';
   seamlessSVG.classList.remove('fadeIn');
   seamlessSVG.classList.add('fadeOut1');
+  cogsSVG.addEventListener(animationEvent, revealViewProjectsBtn);
   cogsSVG.classList.add('fadeOut1');
 }
 
