@@ -170,15 +170,25 @@ function startCogRotations() {
   addRotateTransform('cog6', 3, -1);
 }
 
+function startViewSVGListeners() {
+  window.addEventListener('keyup', function() {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13 && document.activeElement === viewSVG) {
+      projectsAnchor.click();
+    }
+  });
+
+  viewSVG.addEventListener('click', function() {
+    projectsAnchor.click();
+  });
+}
+
 function revealViewProjectsBtn(e) {
   if (e.animationName === 'fadeOut') {
     // Reduce padding on element above so btn is higher up
     reducePaddingElem.style.paddingBottom = '5%';
 
-    viewSVG.addEventListener('click', function() {
-       projectsAnchor.click();
-    });
-    
+    startViewSVGListeners();
     viewSVG.classList.add('cursor-pointer');
     viewSVG.classList.add('fadeIn');
     cogsSVG.removeEventListener(animationEvent, revealViewProjectsBtn);

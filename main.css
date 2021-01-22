@@ -499,3 +499,7 @@ body {
 #view-svg {
 	opacity: 0;
 }
+
+#view-svg:focus {
+	outline: dotted grey 1px;
+}
