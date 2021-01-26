@@ -162,12 +162,12 @@ function addRotateTransform(target_id, dur, dir) {
 }
 
 function startCogRotations() {
-  addRotateTransform('cog1', 3, -1);
-  addRotateTransform('cog2', 3, 1);
-  addRotateTransform('cog3', 3, -1);
-  addRotateTransform('cog4', 3, 1);
-  addRotateTransform('cog5', 3, 1);
-  addRotateTransform('cog6', 3, -1);
+  addRotateTransform('cog1', 2.7, -1);
+  addRotateTransform('cog2', 2.7, 1);
+  addRotateTransform('cog3', 2.7, -1);
+  addRotateTransform('cog4', 2.7, 1);
+  addRotateTransform('cog5', 2.7, 1);
+  addRotateTransform('cog6', 2.7, -1);
 }
 
 function startViewSVGListeners() {
