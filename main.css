@@ -90,7 +90,6 @@ body {
 #welcome-section {
 	padding-top: 60px;
 	height: calc(100% - 60px);
-	background: #FEFEFE; /* #FAFAFA */
 	/*min-height: 300px;*/
 }
 
