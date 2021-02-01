@@ -1,5 +1,6 @@
 #project-section {
-  height: 100vh;
+  height: 100%;
+  position: relative;
 }
 
 .gallery {
@@ -29,7 +30,7 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: darkgrey;
+  background-color: black;
   image-rendering: -webkit-optimize-contrast;
   font-family:'Saira SemiCondensed';
   color: #ffffff;
