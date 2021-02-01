@@ -113,8 +113,7 @@
 }
 
 .gallery-item:first-child.gallery-item-selected {
-  box-sizing: border-box;
-  border: solid 1px lightgrey;
+  outline: solid 1px lightgrey;
 }
 
 .gallery-item.gallery-item-previous,
