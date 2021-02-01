@@ -1,0 +1,243 @@
+#project-section {
+  height: 100vh;
+}
+
+.gallery {
+  width: 100%;
+  height: 100%;
+  min-height: 320px;
+}
+
+.gallery-container {
+  align-items: center;
+  display: flex;
+  height: 100%;
+  margin: 0 auto;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery-item {
+  opacity: .7;
+  position: absolute;
+  height: calc(65vw/2);
+  width: 65vw;
+  max-height: 128px; /* 320px*.4vh = 128px */
+  max-width: 256px;  /* 320px*.4vh*2 = 128px */
+  z-index: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: white;
+  image-rendering: -webkit-optimize-contrast;
+  font-family:'Saira SemiCondensed';
+  color: #ffffff;
+}
+
+.gallery-item:nth-child(1) {
+ background-image: url('../images/tribute-page.png');
+}
+
+.gallery-item:nth-child(2) {
+ background-image: url('../images/documentation-page.png');
+}
+
+.gallery-item:nth-child(3) {
+ background-image: url('../images/product-landing-page.png');
+}
+
+.gallery-item:nth-child(4) {
+  background-image: url('../images/survey-form.png');
+}
+
+.gallery-item:nth-child(5) {
+  background-image: url('../images/portfolio.png');
+}
+
+.project-title {
+  opacity: 0;
+}
+
+.gallery-item-selected > .project-title {
+  position: absolute;
+  font-size: 12.8px; /* 400px * 0.032 */
+  border-radius: 3px;
+  top: 4%;
+  left: 3%;
+  background: rgba(0,0,0,0.8);
+  padding: 0 5px 0 5px;
+  line-height: 1.4;
+  opacity: 1;
+}
+
+.github-btn-svg,
+.website-btn-svg {
+  opacity: 0;
+}
+
+.gallery-item-selected > .github-btn-svg,
+.gallery-item-selected > .website-btn-svg {
+  position: absolute;
+  right: 8%;
+  height: 7.5%;
+  width: auto;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.gallery-item-selected > .github-btn-svg {
+  top: 38%;
+}
+
+.gallery-item-selected > .website-btn-svg {
+  top: 48%;
+}
+
+@media only screen and (min-height: 400px) {
+  .gallery-item-selected > .project-title {
+    font-size: 3.1vmin;
+  }
+}
+
+.gallery-item.gallery-item-selected {
+  opacity: 1;
+  left: 50%;
+  transform: translateX(-50%);
+  height: calc(95vw/2);
+  width: 95vw;
+  max-height: 224px; /* 320px*.7vh = 224px */
+  max-width: 448px;  /* 320px*.7vh*2 = 448px */
+  z-index: 2;
+}
+
+.gallery-item.gallery-item-previous,
+.gallery-item.gallery-item-next {
+  opacity: 1;
+  height: calc(80vw/2);
+  width: 80vw;
+  max-height: 176px; /* 320px*.55vh = 176px */
+  max-width: 352px;  /* 320px*.55vh*2 = 352px */
+  z-index: 1;
+}
+
+.gallery-item.gallery-item-previous {
+  left: 30%;
+  transform: translateX(-50%);
+}
+
+.gallery-item.gallery-item-next {
+  left: 70%;
+  transform: translateX(-50%);
+}
+
+.gallery-item.gallery-item-first {
+  left: 15%;
+  transform: translateX(-50%);
+}
+
+.gallery-item.gallery-item-last {
+  left: 85%;
+  transform: translateX(-50%);
+}
+
+.gallery-nav {
+  bottom: 0px;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  position: absolute;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.gallery-nav li {
+  background: white;
+  border-radius: 50%;
+  height: 10px;
+  margin: 0 16px;
+  width: 10px;
+}
+
+.gallery-nav li.gallery-item-selected {
+  background: #2e2e2e;
+}
+
+/* Make item sizes slightly thinner on larger devices */
+@media only screen and (min-width: 1100px) {
+  .gallery-item {
+    height: calc(40vw/2);
+    width: 40vw;
+  }
+
+  .gallery-item.gallery-item-selected {
+    height: calc(70vw/2);
+    width: 70vw;
+  }
+
+  .gallery-item.gallery-item-previous,
+  .gallery-item.gallery-item-next {
+    height: calc(55vw/2);
+    width: 55vw;
+  }
+}
+
+/* Allow items to resize again after 320px vh */
+@media only screen and (min-height: 320px) {
+  .gallery-item {
+    max-height: 40vh;
+    max-width: calc(40vh*2);
+  }
+
+  .gallery-item.gallery-item-selected {
+    max-height: 70vh;
+    max-width: calc(70vh*2);
+  }
+
+  .gallery-item.gallery-item-previous,
+  .gallery-item.gallery-item-next {
+    max-height: 55vh;
+    max-width: calc(55vh*2);
+  }
+}
+
+.previous,
+.next {
+  position: absolute;
+  z-index: 2;
+  width: 10%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* reset */
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  outline: 0 !important;
+  /* Remove blue highlight in webkit browsers,
+  specifically targetting mobile chrome */
+  -webkit-tap-highlight-color: transparent;
+}
+
+.previous:hover {
+  border: 10px;
+}
+
+.previous {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.left-chevron,
+.right-chevron {
+  width: 38%;
+  height: auto;
+}
