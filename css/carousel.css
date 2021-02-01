@@ -112,6 +112,11 @@
   z-index: 2;
 }
 
+.gallery-item:first-child.gallery-item-selected {
+  box-sizing: border-box;
+  border: solid 1px lightgrey;
+}
+
 .gallery-item.gallery-item-previous,
 .gallery-item.gallery-item-next {
   opacity: 1;
