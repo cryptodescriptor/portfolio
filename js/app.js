@@ -140,7 +140,7 @@ var lastMaskPath = document.querySelector('#mask path:nth-child(6)'),
   reducePaddingElem = document.querySelector(
     '#screen > .scaling-svg-container-wrapper:nth-child(1) > .scaling-svg-container'
   ),
-  projectsAnchor = document.querySelector('a[href="#project-section"]');
+  projectsAnchor = document.querySelector('a[href="#projects"]');
 
 lastMaskPath.addEventListener(animationEvent, restartAnimation);
 
