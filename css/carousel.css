@@ -155,7 +155,7 @@
 }
 
 .gallery-nav li {
-  background: white;
+  background: #b3b3b3;
   border-radius: 50%;
   height: 10px;
   margin: 0 16px;
@@ -163,7 +163,7 @@
 }
 
 .gallery-nav li.gallery-item-selected {
-  background: black;
+  background: #3b3b3b;
 }
 
 /* Make item sizes slightly thinner on larger devices */
