@@ -162,7 +162,7 @@
 }
 
 .gallery-nav li.gallery-item-selected {
-  background: #292929;
+  background: black;
 }
 
 /* Make item sizes slightly thinner on larger devices */
