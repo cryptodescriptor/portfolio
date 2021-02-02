@@ -58,7 +58,10 @@ class Carousel {
 
     // Add buttons
     this.carouselArray.forEach((item) => {
-      this.addBtnElements(item);
+      // Buttons are already added in HTML for .gallery-item-selected
+      if (item.classList[1] !== 'gallery-item-selected') {
+        this.addBtnElements(item);
+      }
     });
 
     // Add corresponding event listeners

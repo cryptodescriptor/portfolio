@@ -8,24 +8,41 @@ var links = document.querySelectorAll('.nav-link');
 
 // Set nav link to active based on window location
 
-var loc = window.location.hash.replace('#', '');
+function setNavlinkActive() {
+  var loc = window.location.hash.replace('#', '');
 
-if (!loc) {
-  links[0].classList.add('active');
-} else {
-  document.querySelector('a[href="#'+loc+'"]').classList.add('active');
+  if (!loc) {
+    links[0].classList.add('active');
+  } else {
+    document.querySelector('a[href="#'+loc+'"]').classList.add('active');
+  }
 }
+
+function unsetNavLinkActive() {
+  links.forEach(function(e) {
+    e.classList.remove('active');
+  });
+}
+
+// Set initial active
+
+setNavlinkActive();
 
 // Nav link click event listener
 
 links.forEach(function(e) {
   e.addEventListener('click', function() {
-    links.forEach(function(e) {
-      e.classList.remove('active');
-    });
+    unsetNavLinkActive();
     e.classList.add('active');
   });
 });
+
+// Update active link on state change
+
+window.onpopstate = function() {
+  unsetNavLinkActive();
+  setNavlinkActive();
+};
 
 // SVG scaling accoring to where the screen is.
 
