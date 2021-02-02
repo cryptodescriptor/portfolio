@@ -4,6 +4,35 @@ if (window.NodeList && !NodeList.prototype.forEach) {
    NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
+// Disable :hover events if touch device
+// https://stackoverflow.com/a/30303898
+
+function watchForHover() {
+  // lastTouchTime is used for ignoring emulated mousemove events
+  let lastTouchTime = 0;
+
+  function enableHover() {
+    if (new Date() - lastTouchTime < 500) return;
+    document.body.classList.add('hasHover');
+  }
+
+  function disableHover() {
+    document.body.classList.remove('hasHover');
+  }
+
+  function updateLastTouchTime() {
+    lastTouchTime = new Date();
+  }
+
+  document.addEventListener('touchstart', updateLastTouchTime, true);
+  document.addEventListener('touchstart', disableHover, true);
+  document.addEventListener('mousemove', enableHover, true);
+
+  enableHover();
+}
+
+watchForHover();
+
 // Set nav link to active based on window location
 
 var links = document.querySelectorAll('.nav-link');
