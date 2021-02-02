@@ -1,3 +1,9 @@
+// forEach polyfill
+
+if (window.NodeList && !NodeList.prototype.forEach) {
+   NodeList.prototype.forEach = Array.prototype.forEach;
+}
+
 // Disable :hover events if touch device
 // https://stackoverflow.com/a/30303898
 
@@ -26,12 +32,6 @@ function watchForHover() {
 }
 
 watchForHover();
-
-// forEach polyfill
-
-if (window.NodeList && !NodeList.prototype.forEach) {
-   NodeList.prototype.forEach = Array.prototype.forEach;
-}
 
 // Set nav link to active based on window location
 
