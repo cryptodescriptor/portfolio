@@ -43,11 +43,6 @@ class Carousel {
   }
 
   setInitialState() {
-    // Reveal Document Body after carousel images are loaded
-    imagesLoaded(galleryContainer, function() {
-      document.body.style.visibility = 'visible';
-    });
-
     // Assign initial css classes for gallery and nav items
     this.carouselArray[0].classList.add('gallery-item-first');
     this.carouselArray[1].classList.add('gallery-item-previous');
