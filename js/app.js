@@ -21,6 +21,7 @@ function setNavlinkActive() {
 function unsetNavLinkActive() {
   links.forEach(function(e) {
     e.classList.remove('active');
+    e.blur();
   });
 }
 
