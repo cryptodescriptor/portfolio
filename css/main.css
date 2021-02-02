@@ -80,12 +80,12 @@ body {
 	height: 100%;
 }
 
-.nav-link:hover {
+body.hasHover .nav-link:hover {
 	background-color: #303030;
 }
 
 .nav-link.active {
-	background-color: #4d79ff;
+	background-color: #4d79ff !important;
 }
 
 #welcome-section {

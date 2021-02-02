@@ -4,9 +4,9 @@ if (window.NodeList && !NodeList.prototype.forEach) {
    NodeList.prototype.forEach = Array.prototype.forEach;
 }
 
-var links = document.querySelectorAll('.nav-link');
-
 // Set nav link to active based on window location
+
+var links = document.querySelectorAll('.nav-link');
 
 function setNavlinkActive() {
   var loc = window.location.hash.replace('#', '');
@@ -21,7 +21,6 @@ function setNavlinkActive() {
 function unsetNavLinkActive() {
   links.forEach(function(e) {
     e.classList.remove('active');
-    e.blur();
   });
 }
 
