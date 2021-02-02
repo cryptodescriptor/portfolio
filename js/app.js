@@ -54,8 +54,7 @@ function scaleScreen(start) {
   }
 }
 
-imagesLoaded('body', function() {
-  document.body.style.visibility = 'visible';
+imagesLoaded(scalingImg, function() {
   scaleScreen(true);
   window.addEventListener('resize', function() { scaleScreen(false); });
 });
