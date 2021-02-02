@@ -1,4 +1,5 @@
 // Disable :hover events if touch device
+// https://stackoverflow.com/a/30303898
 
 function watchForHover() {
   // lastTouchTime is used for ignoring emulated mousemove events
