@@ -57,7 +57,7 @@ class Carousel {
     document.querySelector('.gallery-nav').childNodes[4].className = 'gallery-nav-item gallery-item-last';
 
     // Add buttons and corresponding event listeners
-    this.carouselArray.forEach((item) => {
+    this.carouselArray.forEach((item, ind) => {
       // Buttons are already added for .gallery-item-selected
       if (item.classList[1] !== 'gallery-item-selected') {
         this.addBtnElements(item);
