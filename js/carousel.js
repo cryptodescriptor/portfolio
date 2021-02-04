@@ -56,16 +56,12 @@ class Carousel {
     document.querySelector('.gallery-nav').childNodes[3].className = 'gallery-nav-item gallery-item-next';
     document.querySelector('.gallery-nav').childNodes[4].className = 'gallery-nav-item gallery-item-last';
 
-    // Add buttons
+    // Add buttons and corresponding event listeners
     this.carouselArray.forEach((item) => {
-      // Buttons are already added in HTML for .gallery-item-selected
+      // Buttons are already added for .gallery-item-selected
       if (item.classList[1] !== 'gallery-item-selected') {
         this.addBtnElements(item);
       }
-    });
-
-    // Add corresponding event listeners
-    this.carouselArray.forEach((item, ind) => {
       this.addBtnEvents(item, ind);
     });
 
