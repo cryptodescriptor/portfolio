@@ -3,7 +3,17 @@
 var welcome = document.querySelector('#welcome-section');
 var screen = document.querySelector('#screen');
 
-if (!isWebKit) {
+if (isWebKit) {
+  /* We have to decrement some values due to bilinear scaling process. */
+  var imgWidth = 1950;
+  var imgHeight = 1791;
+
+  var screenWidth = 1610;
+  var screenHeight = 776;
+  
+  var topOffset = 167;
+  var leftOffset = 149;
+} else {
   var imgWidth = 1960;
   var imgHeight = 1800;
 
@@ -12,16 +22,6 @@ if (!isWebKit) {
 
   var topOffset = 168;
   var leftOffset = 150;
-} else {
-  /* We have to decrement some values due to bilinear scaling process. */
-  imgWidth = 1950;
-  imgHeight = 1791;
-
-  screenWidth = 1610;
-  screenHeight = 776;
-  
-  topOffset = 167;
-  leftOffset = 149;
 }
 
 function setStyles(scale, welcomeWidth, welcomeHeight) {
