@@ -3,16 +3,16 @@
 var welcome = document.querySelector('#welcome-section');
 var screen = document.querySelector('#screen');
 
-var imgWidth = 1960;
-var imgHeight = 1800;
+if (!isWebKit) {
+  var imgWidth = 1960;
+  var imgHeight = 1800;
 
-var screenWidth = 1618;
-var screenHeight = 780;
+  var screenWidth = 1618;
+  var screenHeight = 780;
 
-var topOffset = 168;
-var leftOffset = 150;
-
-if (isWebKit) {
+  var topOffset = 168;
+  var leftOffset = 150;
+} else {
   /* We have to decrement some values due to bilinear scaling process. */
   imgWidth = 1950;
   imgHeight = 1791;
