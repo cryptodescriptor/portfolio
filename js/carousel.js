@@ -61,6 +61,9 @@ class Carousel {
     // Start swipe events
     document.addEventListener('swiped-left', () => {
       alert('doc swiped left.');
+      if (e.target.classList.contains('gallery')) {
+        alert('doc gallery swiped left.');
+      }
     });
 
     gallery.addEventListener('swiped-left', () => {
