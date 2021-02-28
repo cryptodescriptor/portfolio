@@ -59,13 +59,6 @@ class Carousel {
     document.querySelector('.gallery-nav').childNodes[4].className = 'gallery-nav-item gallery-item-last';
 
     // Start swipe events
-    document.addEventListener('swiped-left', () => {
-      alert('doc swiped left.');
-      if (e.target.classList.contains('gallery')) {
-        alert('doc gallery swiped left.');
-      }
-    });
-
     gallery.addEventListener('swiped-left', () => {
       alert('swiped left.');
       this.setCurrentState(triggers[0]);
