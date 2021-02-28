@@ -129,8 +129,8 @@ class Carousel {
   }
 }
 
-const exampleCarousel = new Carousel(galleryItems);
+const carousel = new Carousel(galleryItems);
 
-exampleCarousel.setNav();
+carousel.setNav();
 const galleryNavItems = exampleCarousel.setInitialState();
-exampleCarousel.useControls();
+carousel.useControls();
