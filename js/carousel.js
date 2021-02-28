@@ -22,6 +22,39 @@ class Carousel {
     this.carouselArrayTemp = [];
   }
 
+  // Update the order state of the carousel with css classes
+  setCurrentState(target) {
+    if (target.className === 'next') {
+      this.carouselArrayTemp = this.carouselArray.rotate(-1);
+    } else if (target.className === 'previous') {
+      this.carouselArrayTemp = this.carouselArray.rotate(1);
+    }
+
+    let tempClassList = [];
+
+    this.carouselArrayTemp.forEach(item => {
+      tempClassList.push(item.classList[1]);
+    });
+
+    [this.carouselArray, galleryNavItems].forEach(elements => {
+      elements.forEach((item, ind) => {
+        item.classList.remove(item.classList[1]);
+        item.classList.add(tempClassList[ind]);
+      });
+    });
+  }
+
+  startSwipeEvents() {
+    // Start mobile swipe navigation
+    gallery.addEventListener('swiped-left', () => {
+      this.setCurrentState(triggers[0]);
+    });
+
+    gallery.addEventListener('swiped-right', () => {
+      this.setCurrentState(triggers[1]);
+    });
+  }
+
   btnEvent(source, target, ind) {
     if (target.parentElement.classList[1] !== 'gallery-item-selected') return;
     let url = (source) ? 'https://github.com/cryptodescriptor/' : 'https://cryptodescriptor.github.io/';
@@ -44,6 +77,27 @@ class Carousel {
     '<img src="' + websiteSVG + '" alt="Website Button" class="website-btn-svg btn-svg">';
   }
 
+  createButtonsAndListeners() {
+    // Create buttons and corresponding event listeners
+    this.carouselArray.forEach((item, ind) => {
+      // Buttons are already added for .gallery-item-selected
+      if (item.classList[1] !== 'gallery-item-selected') {
+        this.addBtnElements(item);
+      }
+      this.addBtnEvents(item, ind);
+    });
+  }
+
+  setDeviceAnimation() {
+    // Only use animation on devices other than Mobile and Tablets
+    if (!window.mobileAndTabletCheck()) {
+      var styleSheet = document.createElement('style');
+      styleSheet.type = 'text/css';
+      styleSheet.innerText = '.gallery-item { transition: all 0.2s ease-in-out; }';
+      document.head.appendChild(styleSheet);
+    }
+  }
+
   setInitialState() {
     // Assign initial css classes for gallery and nav items
     this.carouselArray[0].classList.add('gallery-item-first');
@@ -58,55 +112,11 @@ class Carousel {
     document.querySelector('.gallery-nav').childNodes[3].className = 'gallery-nav-item gallery-item-next';
     document.querySelector('.gallery-nav').childNodes[4].className = 'gallery-nav-item gallery-item-last';
 
-    // Start swipe events
-    gallery.addEventListener('swiped-left', () => {
-      this.setCurrentState(triggers[0]);
-    });
-
-    gallery.addEventListener('swiped-right', () => {
-      this.setCurrentState(triggers[1]);
-    });
-
-    // Add buttons and corresponding event listeners
-    this.carouselArray.forEach((item, ind) => {
-      // Buttons are already added for .gallery-item-selected
-      if (item.classList[1] !== 'gallery-item-selected') {
-        this.addBtnElements(item);
-      }
-      this.addBtnEvents(item, ind);
-    });
-
-    // Only use animation on devices other than Mobile and Tablets
-    if (!window.mobileAndTabletCheck()) {
-      var styleSheet = document.createElement('style');
-      styleSheet.type = 'text/css';
-      styleSheet.innerText = '.gallery-item { transition: all 0.2s ease-in-out; }';
-      document.head.appendChild(styleSheet);
-    }
+    this.startSwipeEvents();
+    this.createButtonsAndListeners();
+    this.setDeviceAnimation();
 
     return document.querySelectorAll('.gallery-nav-item');
-  }
-
-  // Update the order state of the carousel with css classes
-  setCurrentState(target) {
-    if (target.className === 'next') {
-      this.carouselArrayTemp = this.carouselArray.rotate(-1);
-    } else if (target.className === 'previous') {
-      this.carouselArrayTemp = this.carouselArray.rotate(1);
-    }
-
-    let tempClassList = [];
-
-    this.carouselArrayTemp.forEach(item => {
-      tempClassList.push(item.classList[1]);
-    });
-
-    [this.carouselArray, galleryNavItems].forEach(elements => {
-      elements.forEach((item, ind) => {
-        item.classList.remove(item.classList[1]);
-        item.classList.add(tempClassList[ind]);
-      });
-    });
   }
 
   // Construct the carousel navigation
