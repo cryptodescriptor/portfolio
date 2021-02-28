@@ -60,12 +60,10 @@ class Carousel {
 
     // Start swipe events
     gallery.addEventListener('swiped-left', () => {
-      alert('swiped left.');
       this.setCurrentState(triggers[0]);
     });
 
     gallery.addEventListener('swiped-right', () => {
-      alert('swiped right.');
       this.setCurrentState(triggers[1]);
     });
 
