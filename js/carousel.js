@@ -8,8 +8,10 @@ window.mobileAndTabletCheck = function() {
   return check;
 };
 
+const gallery = document.querySelector('.gallery');
 const galleryContainer = document.querySelector('.gallery-container');
 const galleryItems = document.querySelectorAll('.gallery-item');
+const triggers = [document.querySelector('.previous'), document.querySelector('.next')];
 const githubSVG = './images/github.svg';
 const websiteSVG = './images/website.svg';
 const urlPostfixes = ['tribute-page', 'documentation-page', 'product-landing-page', 'survey-form', 'portfolio'];
@@ -55,6 +57,15 @@ class Carousel {
     document.querySelector('.gallery-nav').childNodes[2].className = 'gallery-nav-item gallery-item-selected';
     document.querySelector('.gallery-nav').childNodes[3].className = 'gallery-nav-item gallery-item-next';
     document.querySelector('.gallery-nav').childNodes[4].className = 'gallery-nav-item gallery-item-last';
+
+    // Start swipe events
+    gallery.addEventListener('swiped-left', () => {
+      this.setCurrentState(triggers[0]);
+    });
+
+    gallery.addEventListener('swiped-right', () => {
+      this.setCurrentState(triggers[1]);
+    });
 
     // Add buttons and corresponding event listeners
     this.carouselArray.forEach((item, ind) => {
@@ -103,20 +114,16 @@ class Carousel {
     galleryContainer.appendChild(document.createElement('ul')).className = 'gallery-nav';
 
     this.carouselArray.forEach(item => {
-      const nav = galleryContainer.lastElementChild;
+      let nav = galleryContainer.lastElementChild;
       nav.appendChild(document.createElement('li'));
     });
   }
  
   // Add a click event listener to trigger setCurrentState method to rearrange carousel
   useControls() {
-    const triggers = [document.querySelector('.previous'),
-    document.querySelector('.next')];
-
     triggers.forEach(control => {
       control.addEventListener('click', () => {
-        const target = control;
-        this.setCurrentState(target);
+        this.setCurrentState(control);
       });
     });
   }
