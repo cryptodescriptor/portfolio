@@ -131,6 +131,6 @@ class Carousel {
 
 const carousel = new Carousel(galleryItems);
 
-carousel.setNav();
-const galleryNavItems = exampleCarousel.setInitialState();
-carousel.useControls();
+galleryCarousel.setNav();
+const galleryNavItems = galleryCarousel.setInitialState();
+galleryCarousel.useControls();
