@@ -1,6 +1,6 @@
 import cv2
 
-img = cv2.imread('C:/Users/John/Desktop/git/portfolio/no-webkit.png')
+img = cv2.imread('no-webkit.png')
 
 #scale_percent = 99.9 # percent of original size
 scale_percent = 99 # percent of original size
