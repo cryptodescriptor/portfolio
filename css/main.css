@@ -123,7 +123,6 @@ body.hasHover .nav-link:hover {
 .scaling-svg-container {
 	position: relative;
 	height: 0;
-	width: 100%;
 	padding: 0;
 	padding-bottom: 100%;
 	/* override this inline for aspect ratio other than square */
