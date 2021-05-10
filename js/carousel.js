@@ -91,7 +91,7 @@ class Carousel {
   setDeviceAnimation() {
     // Only use animation on devices other than Mobile and Tablets
     if (!window.mobileAndTabletCheck()) {
-      var styleSheet = document.createElement('style');
+      let styleSheet = document.createElement('style');
       styleSheet.type = 'text/css';
       styleSheet.innerText = '.gallery-item { transition: all 0.2s ease-in-out; }';
       document.head.appendChild(styleSheet);
