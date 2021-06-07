@@ -62,44 +62,6 @@ imagesLoaded(scalingImg, function() {
 
 // Coding Animation
 
-function whichAnimationEvent(){
-  var t,
-      el = document.createElement("fakeelement");
-
-  var animations = {
-    "animation"      : "animationend",
-    "OAnimation"     : "oAnimationEnd",
-    "MozAnimation"   : "animationend",
-    "WebkitAnimation": "webkitAnimationEnd"
-  }
-
-  for (t in animations){
-    if (el.style[t] !== undefined){
-      return animations[t];
-    }
-  }
-}
-
-var animationEvent = whichAnimationEvent();
-
-var whichTransitionEvent = function() {
-  var t;
-  var el = document.createElement("fakeelement");
-  var transitions = {
-    transition: "transitionend",
-    OTransition: "oTransitionEnd",
-    MozTransition: "transitionend",
-    WebkitTransition: "webkitTransitionEnd"
-  };
-  for (t in transitions) {
-    if (el.style[t] !== undefined) {
-      return transitions[t];
-    }
-  }
-}
-
-var transitionEvent = whichTransitionEvent();
-
 var lastMaskPath = document.querySelector('#mask path:nth-child(6)'),
   programmingSVG = document.querySelector('#programming-svg'),
   codingSVG = document.querySelector('#coding-svg'),
@@ -113,7 +75,7 @@ var lastMaskPath = document.querySelector('#mask path:nth-child(6)'),
   ),
   projectsAnchor = document.querySelector('a[href="#projects"]');
 
-lastMaskPath.addEventListener(animationEvent, restartAnimation);
+lastMaskPath.addEventListener('animationend', restartAnimation);
 
 function addRotateTransform(target_id, dur, dir) {
   var my_element = cogsSVG.getElementById(target_id);
@@ -162,7 +124,7 @@ function revealViewProjectsBtn(e) {
     startViewSVGListeners();
     viewSVG.classList.add('cursor-pointer');
     viewSVG.classList.add('fadeIn');
-    cogsSVG.removeEventListener(animationEvent, revealViewProjectsBtn);
+    cogsSVG.removeEventListener('animationend', revealViewProjectsBtn);
   }
 }
 
@@ -170,21 +132,21 @@ function fadeOutCogs() {
   seamlessSVG.style.opacity = '1';
   seamlessSVG.classList.remove('fadeIn');
   seamlessSVG.classList.add('fadeOut1');
-  cogsSVG.addEventListener(animationEvent, revealViewProjectsBtn);
+  cogsSVG.addEventListener('animationend', revealViewProjectsBtn);
   cogsSVG.classList.add('fadeOut1');
 }
 
 function revealAndSpinCogs() {
   // Wait for programming SVG's to fade out
-  programmingSVG.addEventListener(animationEvent, function() {
+  programmingSVG.addEventListener('animationend', function() {
     // Set up listeners to occur after entrance animations
-    lastCog.addEventListener(animationEvent, startCogRotations);
-    seamlessSVG.addEventListener(animationEvent, fadeOutCogs);
+    lastCog.addEventListener('animationend', startCogRotations, {'once': true});
+    seamlessSVG.addEventListener('animationend', fadeOutCogs, {'once': true});
 
     // Reveal text and cogs
     seamlessSVG.classList.add('fadeIn');
     cogsGroup.classList.remove('animations-paused');
-  });
+  }, {'once': true});
 }
 
 function fadeOutCoding() {
@@ -213,14 +175,11 @@ function restartAnimation() {
   // Wait for last mask to finish Animating
   lastMaskPath = mask.lastElementChild;
 
-  lastMaskPath.addEventListener(animationEvent, function() {
+  lastMaskPath.addEventListener('animationend', function() {
     fadeOutCoding();
     revealAndSpinCogs();
-  });
+  }, {'once': true});
 
   // Only reveal when mask is initialised
   group2.style.opacity = '1';
-
-  // Cleanup
-  lastMaskPath.removeEventListener(animationEvent, restartAnimation);
 }
